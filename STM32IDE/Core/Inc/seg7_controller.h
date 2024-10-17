@@ -12,9 +12,15 @@
 
 #include "main.h"
 
+//--- Extern Variables ---------------------------
+
+extern const int MAX_LED;
+extern int index_led;
+extern int led_buffer[4];
+
 //--- Functions Declaration ----------------------
 
 void display7SEG(int num);
-void choose7SEG(int num);
+void update7SEG(int index);
 
 #endif /* INC_SEG7_CONTROLLER_H_ */

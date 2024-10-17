@@ -232,20 +232,16 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 int counter = 100;
-int choose = 0;
-int arr[4] = {1,2,3,0};
 void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim ){
 	if(counter == 100){
 		HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, RESET);
-		display7SEG(arr[choose]);
-		choose7SEG(choose);
-		choose = (choose+1)%4;
+		update7SEG(index_led);
+		index_led = (index_led+1)%MAX_LED;
 	}
 	if(counter == 50){
 		HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, SET);
-		display7SEG(arr[choose]);
-		choose7SEG(choose);
-		choose = (choose+1)%4;
+		update7SEG(index_led);
+		index_led = (index_led+1)%MAX_LED;
 	}
 	counter--;
 	if(counter <= 0){
