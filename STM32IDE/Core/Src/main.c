@@ -201,14 +201,17 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, EN0_Pin|EN1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, DOT_Pin|EN0_Pin|EN1_Pin|EN2_Pin
+                          |EN3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, SEG0_Pin|SEG1_Pin|SEG2_Pin|SEG3_Pin
                           |SEG4_Pin|SEG5_Pin|SEG6_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : EN0_Pin EN1_Pin */
-  GPIO_InitStruct.Pin = EN0_Pin|EN1_Pin;
+  /*Configure GPIO pins : DOT_Pin EN0_Pin EN1_Pin EN2_Pin
+                           EN3_Pin */
+  GPIO_InitStruct.Pin = DOT_Pin|EN0_Pin|EN1_Pin|EN2_Pin
+                          |EN3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -229,16 +232,20 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 int counter = 100;
+int choose = 0;
+int arr[4] = {1,2,3,0};
 void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim ){
 	if(counter == 100){
-		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-		display7SEG(1);
+		HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, RESET);
+		display7SEG(arr[choose]);
+		choose7SEG(choose);
+		choose = (choose+1)%4;
 	}
 	if(counter == 50){
-		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
-		display7SEG(2);
+		HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, SET);
+		display7SEG(arr[choose]);
+		choose7SEG(choose);
+		choose = (choose+1)%4;
 	}
 	counter--;
 	if(counter <= 0){

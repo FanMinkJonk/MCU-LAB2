@@ -15,5 +15,6 @@
 //--- Functions Declaration ----------------------
 
 void display7SEG(int num);
+void choose7SEG(int num);
 
 #endif /* INC_SEG7_CONTROLLER_H_ */
