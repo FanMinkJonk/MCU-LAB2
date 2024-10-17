@@ -1,2 +1,4 @@
-../Core/Src/software_timer.c:19:6:setTimer0	16	static
-../Core/Src/software_timer.c:24:6:timerRun	4	static
+../Core/Src/software_timer.c:22:6:resetFlag_dots	4	static
+../Core/Src/software_timer.c:26:6:resetFlag_clock	4	static
+../Core/Src/software_timer.c:31:6:setTimer_clockSpeed	16	static
+../Core/Src/software_timer.c:37:6:timerRun	4	static

@@ -11,20 +11,37 @@
 
 //--- Variables ----------------------------------
 
-int timer0_counter = 0;
-int timer0_flag = 0;
+int timer_counter_clock = 0;
+int clockSpeed = 0;
+
+int timer_flag_clock = 0;
+int timer_flag_output_dots = 0;
 
 //--- Functions Definition -----------------------
 
-void setTimer0(int duration){
-	timer0_flag = 0;
-	timer0_counter = duration/TIMECYCLE;
+void resetFlag_dots(){
+	timer_flag_output_dots = 0;
+}
+
+void resetFlag_clock(){
+	timer_flag_clock = 0;
+	timer_counter_clock = clockSpeed;
+}
+
+void setTimer_clockSpeed(int duration){
+	timer_flag_clock = 0;
+	clockSpeed = duration/TIMECYCLE;
+	timer_counter_clock = duration/TIMECYCLE;
 }
 
 void timerRun(){
-	timer0_counter--;
-	if(timer0_counter <= 0){
-		timer0_flag = 1;
+	timer_counter_clock--;
+
+	if(timer_counter_clock <= 0){
+		timer_flag_clock = 1;
+	}
+	if(timer_counter_clock == 0 || timer_counter_clock == clockSpeed/2){
+		timer_flag_output_dots = 1;
 	}
 }
 

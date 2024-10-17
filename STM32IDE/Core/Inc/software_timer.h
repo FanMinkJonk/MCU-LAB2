@@ -14,11 +14,16 @@
 
 //--- Variables ----------------------------------
 
-extern int timer0_flag;
+extern int timer_flag_clock;
+extern int timer_flag_output_dots;
+extern int clockSpeed;
 
 //--- Functions Declaration ----------------------
 
-void setTimer0(int duration);
+void resetFlag_dots();
+void resetFlag_clock();
+void setTimer_clockSpeed(int duration);
+
 void timerRun();
 
 //--- Private Defines ----------------------------
