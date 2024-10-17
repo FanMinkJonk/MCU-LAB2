@@ -238,8 +238,16 @@ void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim ){
 		update7SEG(index_led);
 		index_led = (index_led+1)%MAX_LED;
 	}
+	if(counter == 75){
+		update7SEG(index_led);
+		index_led = (index_led+1)%MAX_LED;
+	}
 	if(counter == 50){
 		HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, SET);
+		update7SEG(index_led);
+		index_led = (index_led+1)%MAX_LED;
+	}
+	if(counter == 25){
 		update7SEG(index_led);
 		index_led = (index_led+1)%MAX_LED;
 	}
