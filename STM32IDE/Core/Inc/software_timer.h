@@ -16,13 +16,16 @@
 
 extern int timer_flag_clock;
 extern int timer_flag_output_dots;
+extern int timer_flag_output_7segled;
 extern int clockSpeed;
 
 //--- Functions Declaration ----------------------
 
 void resetFlag_dots();
 void resetFlag_clock();
+void resetFlag_7segled();
 void setTimer_clockSpeed(int duration);
+void setTimer_output_7segled(int duration);
 
 void timerRun();
 

@@ -19,6 +19,7 @@ int second = 50;
 
 void setClock(){
 	updateClockBuffer(hour, minute);
+	showTime();
 }
 
 void updateClockBuffer(int hour, int minute){

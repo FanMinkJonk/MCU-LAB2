@@ -1,5 +1,5 @@
 ../Core/Src/clock.c:20:6:setClock	8	static
-../Core/Src/clock.c:24:6:updateClockBuffer	16	static
-../Core/Src/clock.c:31:6:runClock	8	static
-../Core/Src/clock.c:47:6:blinkDots	8	static
-../Core/Src/clock.c:51:6:showTime	8	static
+../Core/Src/clock.c:25:6:updateClockBuffer	16	static
+../Core/Src/clock.c:32:6:runClock	8	static
+../Core/Src/clock.c:48:6:blinkDots	8	static
+../Core/Src/clock.c:52:6:showTime	8	static

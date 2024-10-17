@@ -95,6 +95,7 @@ int main(void)
 
   setClock();
   setTimer_clockSpeed(1000);
+  setTimer_output_7segled(500);
   resetFlag_dots();
   /* USER CODE END 2 */
 
@@ -109,6 +110,10 @@ int main(void)
 	  if(timer_flag_output_dots == 1){
 		  resetFlag_dots();
 		  blinkDots();
+	  }
+	  if(timer_flag_output_7segled == 1){
+		  resetFlag_7segled();
+		  showTime();
 	  }
     /* USER CODE END WHILE */
 
@@ -244,19 +249,8 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counter = 100;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	timerRun();
-	if(counter == 100){
-		showTime();
-	}
-	if(counter == 50){
-		showTime();
-	}
-	counter--;
-	if(counter <= 0){
-		counter = 100;
-	}
 }
 /* USER CODE END 4 */
 
