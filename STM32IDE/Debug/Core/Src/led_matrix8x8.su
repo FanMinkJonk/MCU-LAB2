@@ -1,0 +1,2 @@
+../Core/Src/led_matrix8x8.c:19:6:turnOnCol	16	static
+../Core/Src/led_matrix8x8.c:32:6:updateLEDMatrix	16	static
